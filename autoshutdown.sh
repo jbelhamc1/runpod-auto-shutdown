@@ -27,7 +27,7 @@ while true; do
       idle=$(( now - last ))
       if (( idle >= IDLE_LIMIT )); then
         echo "[watcher] idle for ${idle}s ≥ ${IDLE_LIMIT}s → stopping pod now!"
-        runpodctl stop pod "$RUNPOD_POD_ID"
+        runpodctl remove pod "$RUNPOD_POD_ID"
         exit 0
       fi
     else
